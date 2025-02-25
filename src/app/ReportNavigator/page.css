@@ -1,0 +1,23 @@
+h2 {
+    margin-top: 10px;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+.wj-cell.green {
+    background-color: rgb(215, 255, 215);
+    /* color: green; */
+  }
+  .wj-cell.red {
+    background-color: rgb(255, 210, 216);
+    /* color: red; */
+  }
+  .wj-cell.yellow{
+    background-color: rgb(255, 255, 206);
+    /* color: rgb(0, 0, 0); */
+  }
+
+  .wj-row{
+    max-height: 50px;
+  }
