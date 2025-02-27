@@ -23,23 +23,22 @@ export default function ReportNavigator() {
         getTestResults();
     }, [])
     const comboBoxSelectedIndexChanged = (sender: any) => {
-        console.log(testRuns[selectedTest])
         setSelectedTest(sender.selectedIndex);
-        setCurrentTestCasesArray(sender.selectedValue?.["Test Cases"]);
+        setCurrentTestCasesArray(sender.selectedValue?.testCases);
     }
     const styleRows = (s: any, e: any) => {
         for (var i = 0; i < s.rows.length; i++) {
             var row = s.rows[i];
             row.maxHeight = 60;
             var item = row.dataItem;
-            console.log(item)
-            if (item.Status == "PASSED") {
+
+            if (item.status == "PASSED") {
                 row.cssClass = 'green';
             }
-            else if (item.Status == "FAILED") {
+            else if (item.status == "FAILED") {
                 row.cssClass = 'red';
             }
-            else if (item.Status == "SKIPPED") {
+            else if (item.status == "SKIPPED") {
                 row.cssClass = 'yellow'
             }
         }
@@ -49,22 +48,22 @@ export default function ReportNavigator() {
             <h2>Reports List</h2>
             <hr></hr>
             <label>
-                <wjInput.ComboBox itemsSource={testRuns} displayMemberPath="Execution Date" selectedIndexChanged={comboBoxSelectedIndexChanged}></wjInput.ComboBox>
+                <wjInput.ComboBox itemsSource={testRuns} displayMemberPath="testExecutionDate" selectedIndexChanged={comboBoxSelectedIndexChanged}></wjInput.ComboBox>
             </label>
             <br></br>
             <br></br>
             <wjGrid.FlexGrid ref={gridRef} itemsSource={currentTestCasesArray} loadedRows={styleRows} alternatingRowStep={0} autoRowHeights={true}>
                 <wjGridFilter.FlexGridFilter></wjGridFilter.FlexGridFilter>
-                <wjGrid.FlexGridColumn binding={"Test Case ID"} width={".5*"}></wjGrid.FlexGridColumn>
-                <wjGrid.FlexGridColumn binding={"Description"} width={"2*"} wordWrap={true}></wjGrid.FlexGridColumn>
-                <wjGrid.FlexGridColumn binding={"Test Name"} width={"*"}></wjGrid.FlexGridColumn>
-                <wjGrid.FlexGridColumn binding={"Status"} width={"0.7*"}></wjGrid.FlexGridColumn>
-                <wjGrid.FlexGridColumn binding={"Message"} wordWrap={true} width={"3*"}></wjGrid.FlexGridColumn>
-                <wjGrid.FlexGridColumn binding={"Time Span"} format={"hh:mm"} width={"*"}></wjGrid.FlexGridColumn>
-                <wjGrid.FlexGridColumn binding={"Time (ms)"} width={"0.7*"}></wjGrid.FlexGridColumn>
-                <wjGrid.FlexGridColumn binding={"Start Time"} width={"*"} format={"tt"}></wjGrid.FlexGridColumn>
-                <wjGrid.FlexGridColumn binding={"End Time"} width={"*"}></wjGrid.FlexGridColumn>
-                <wjGrid.FlexGridColumn binding={"Class"} width={"2*"}></wjGrid.FlexGridColumn>
+                <wjGrid.FlexGridColumn binding={"testCaseID"} width={".5*"}></wjGrid.FlexGridColumn>
+                <wjGrid.FlexGridColumn binding={"description"} width={"2*"} wordWrap={true}></wjGrid.FlexGridColumn>
+                <wjGrid.FlexGridColumn binding={"testName"} width={"*"}></wjGrid.FlexGridColumn>
+                <wjGrid.FlexGridColumn binding={"status"} width={"0.7*"}></wjGrid.FlexGridColumn>
+                <wjGrid.FlexGridColumn binding={"message"} wordWrap={true} width={"3*"}></wjGrid.FlexGridColumn>
+                <wjGrid.FlexGridColumn binding={"testSpan"} format={"hh:mm"} width={"*"}></wjGrid.FlexGridColumn>
+                <wjGrid.FlexGridColumn binding={"timeMs"} width={"0.7*"}></wjGrid.FlexGridColumn>
+                <wjGrid.FlexGridColumn binding={"startTime"} width={"*"} format={"tt"}></wjGrid.FlexGridColumn>
+                <wjGrid.FlexGridColumn binding={"endTime"} width={"*"}></wjGrid.FlexGridColumn>
+                <wjGrid.FlexGridColumn binding={"class"} width={"2*"}></wjGrid.FlexGridColumn>
             </wjGrid.FlexGrid>
         </div>
     )
