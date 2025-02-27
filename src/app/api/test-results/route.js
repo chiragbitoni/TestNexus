@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 export async function GET() {
-    const filePath = fs.realpathSync("D:/Personal/Projects/DemoQASeleniumAutomation/target/test-results.json");
+    const filePath = fs.realpathSync("D:/Projects/DemoQASeleniumAutomation/target/test-results.json");
     console.log("Attempting to read file:", filePath);
     if (!fs.existsSync(filePath)) {
         console.error("File not found:", filePath);

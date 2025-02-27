@@ -54,12 +54,12 @@ export default function ReportNavigator() {
             <br></br>
             <wjGrid.FlexGrid ref={gridRef} itemsSource={currentTestCasesArray} loadedRows={styleRows} alternatingRowStep={0} autoRowHeights={true}>
                 <wjGridFilter.FlexGridFilter></wjGridFilter.FlexGridFilter>
-                <wjGrid.FlexGridColumn binding={"testCaseID"} width={".5*"}></wjGrid.FlexGridColumn>
+                <wjGrid.FlexGridColumn binding={"testCaseId"} width={".5*"}></wjGrid.FlexGridColumn>
                 <wjGrid.FlexGridColumn binding={"description"} width={"2*"} wordWrap={true}></wjGrid.FlexGridColumn>
                 <wjGrid.FlexGridColumn binding={"testName"} width={"*"}></wjGrid.FlexGridColumn>
                 <wjGrid.FlexGridColumn binding={"status"} width={"0.7*"}></wjGrid.FlexGridColumn>
                 <wjGrid.FlexGridColumn binding={"message"} wordWrap={true} width={"3*"}></wjGrid.FlexGridColumn>
-                <wjGrid.FlexGridColumn binding={"testSpan"} format={"hh:mm"} width={"*"}></wjGrid.FlexGridColumn>
+                <wjGrid.FlexGridColumn binding={"timeSpan"} format={"hh:mm"} width={"*"}></wjGrid.FlexGridColumn>
                 <wjGrid.FlexGridColumn binding={"timeMs"} width={"0.7*"}></wjGrid.FlexGridColumn>
                 <wjGrid.FlexGridColumn binding={"startTime"} width={"*"} format={"tt"}></wjGrid.FlexGridColumn>
                 <wjGrid.FlexGridColumn binding={"endTime"} width={"*"}></wjGrid.FlexGridColumn>
