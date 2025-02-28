@@ -31,13 +31,37 @@ hr {
     width: 90%;
     margin: 10px 0;
     color: inherit;
+    margin-top: 20px;
 }
 
 .card {
     cursor: pointer;
     transition: transform 0.2s;
+    width: 90%; /* Reduce the real width */
+    margin: 20px auto; /* Center the card and add space between cards */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    background-color: #f9f9f9; /* Set background color */
+    padding: 16px; /* Add padding */
 }
 
 .card:hover {
     transform: scale(1.05);
+    background-color: #e0f7fa; /* Change background color on hover */
+}
+
+.card-body {
+    padding: 16px; /* Add padding inside the card */
+}
+
+.card-title {
+    font-size: 1.25em; /* Increase font size */
+    margin-bottom: 8px; /* Add space below title */
+    color: #00796b; /* Set title color */
+}
+
+.card-text {
+    font-size: 1em; /* Set font size */
+    color: #666; /* Set text color */
 }

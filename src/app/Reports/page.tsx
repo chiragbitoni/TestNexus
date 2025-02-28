@@ -5,9 +5,6 @@ import "./page.css";
 
 export default function Reports() {
   const [testRuns, setTestRuns] = useState([]);
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState("");
   useEffect(() => {
     async function getTestResults() {
       const res = await fetch("http://localhost:3000/api/test-results", { cache: "force-cache" });
@@ -22,7 +19,7 @@ export default function Reports() {
 
   const runCards = () => {
     return testRuns.map((run: any, index: number) => (
-      <Link href={`/report/${index}`} key={index} className="card-link">
+      <Link href={`/Report/${index}`} key={index} className="card-link">
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">Execution Time: {run.testExecutionDate}</h5>
@@ -33,8 +30,8 @@ export default function Reports() {
       </Link>
     ));
   };
-  return (
 
+  return (
     <div>
       {runCards()}
     </div>

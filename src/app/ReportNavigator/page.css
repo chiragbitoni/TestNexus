@@ -5,6 +5,11 @@ h2 {
     text-align: center;
 }
 
+.wj-flexgrid{
+  height: calc(100vh - 155px) !important;
+  width:95%;
+}
+
 .wj-cell.green {
     background-color: rgb(215, 255, 215);
     /* color: green; */
@@ -21,3 +26,20 @@ h2 {
   .wj-row{
     max-height: 50px;
   }
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; /* Align buttons to the end */
+    align-items: center;
+    gap: 10px; /* Add spacing between buttons */
+}
+
+.combo-box-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Align combobox to the start */
+    align-items: center;
+    gap: 10px; /* Add spacing */
+    flex-grow: 1; /* Allow combobox to take available space */
+}
