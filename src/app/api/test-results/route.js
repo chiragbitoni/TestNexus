@@ -1,18 +1,26 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
+import path from "path";
+
 export async function GET() {
-    const filePath = fs.realpathSync("D:/Personal/Projects/DemoQASeleniumAutomation/target/test-results.json");
-    console.log("Attempting to read file:", filePath);
-    if (!fs.existsSync(filePath)) {
-        console.error("File not found:", filePath);
-        return NextResponse.json({ error: "Test results file not found" }, { status: 404 });
+    const candidatePaths = [
+        process.env.TEST_RESULTS_PATH,
+        path.join(process.cwd(), "public", "test-results.json"),
+        "D:/Personal/Projects/DemoQASeleniumAutomation/target/test-results.json",
+        "C:/Users/Chirag.Bitoni/IdeaProjects/SeleniumJavaAutomationFramework/target/test-results.json"
+    ].filter(Boolean);
+
+    for (const filePath of candidatePaths) {
+        if (fs.existsSync(filePath)) {
+            try {
+                const data = fs.readFileSync(filePath, "utf8");
+                const jsonData = JSON.parse(data);
+                return NextResponse.json(jsonData);
+            } catch (error) {
+                console.error(`Error reading ${filePath}:`, error);
+            }
+        }
     }
-    try {
-        const data = fs.readFileSync(filePath, "utf8");
-        const jsonData = JSON.parse(data);
-        return NextResponse.json(jsonData);
-    } catch (error) {
-        console.error("Error reading test results:", error);
-        return NextResponse.json({ error: "Failed to read test results" }, { status: 500 });
-    }
+
+    return NextResponse.json({ error: "Test results file not found" }, { status: 404 });
 }

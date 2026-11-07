@@ -1,7 +1,24 @@
 {
-  "name": "automation_report_dashboard",
+  "name": "testnexus-dashboard",
   "version": "0.1.0",
-  "private": true,
+  "description": "Interactive test execution analytics and reporting dashboard for TestNG, Selenium, and Playwright test suites",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chiragbitoni/TestNexus.git"
+  },
+  "keywords": [
+    "test-reporting",
+    "test-automation",
+    "selenium",
+    "testng",
+    "playwright",
+    "nextjs",
+    "react",
+    "wijmo",
+    "dashboard"
+  ],
+  "author": "Chirag Bitoni",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
